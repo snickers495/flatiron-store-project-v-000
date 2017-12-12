@@ -11,31 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211234114) do
+ActiveRecord::Schema.define(version: 20171212003050) do
 
   create_table "carts", force: :cascade do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "user_id"
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.string "title"
   end
 
   create_table "items", force: :cascade do |t|
     t.string  "name"
     t.integer "category_id"
+    t.string  "title"
+    t.integer "inventory"
+    t.integer "price"
   end
 
   create_table "line_items", force: :cascade do |t|
-    t.integer "category_id"
     t.integer "item_id"
     t.integer "cart_id"
-    t.integer "quantity",    default: 1
+    t.integer "quantity", default: 1
   end
 
   create_table "orders", force: :cascade do |t|
     t.string  "name"
     t.integer "user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string  "username"
+    t.string  "password"
+    t.integer "current_cart"
+    t.string  "password_digest"
+    t.string  "email"
   end
 
 end
