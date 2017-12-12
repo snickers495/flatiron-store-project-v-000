@@ -8,8 +8,14 @@
   <%= analytics_init if Rails.env.production? %>
 </head>
 <body>
+  <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
 
-<%= render 'layouts/header' %>
+<% if session[:user_id]%>
+  <%= render 'layouts/logged_in_header' %>
+<% else %>
+  <%= render 'layouts/not_logged_in_header' %>
+<% end %>
 <%= yield %>
 
 </body>
