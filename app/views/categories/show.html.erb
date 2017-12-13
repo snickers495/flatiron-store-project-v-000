@@ -3,5 +3,6 @@
 <ul>
 <% @category.items.each do |item| %>
     <li><%= link_to item.title, item_path(item) %></li>
+    <li>$<%= (item.price).to_f%>0</li>
 <% end %>
 </ul>

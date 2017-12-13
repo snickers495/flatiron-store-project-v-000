@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
   def show
-  end 
+    @order = Order.find_by(id: params[:id])
+  end
 end

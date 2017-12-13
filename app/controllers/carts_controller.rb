@@ -13,6 +13,7 @@ class CartsController < ApplicationController
   end
 
   def show
+    @cart = Cart.find_by(id: params[:id])
   end
 
   def update
@@ -20,4 +21,5 @@ class CartsController < ApplicationController
 
   def destroy
   end
+
 end

@@ -11,7 +11,7 @@
   <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
 
-<% if session[:user_id]%>
+<% if user_signed_in?%>
   <%= render 'layouts/logged_in_header' %>
 <% else %>
   <%= render 'layouts/not_logged_in_header' %>
