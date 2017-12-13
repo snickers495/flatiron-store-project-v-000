@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+
 Category List:
 <% @categories.each do |category| %>
   <%= link_to category.title, category_path(category) %>
@@ -6,6 +6,5 @@ Category List:
 
 Item List:
 <% @items.each do |item| %>
-  <p><%= item.title %> | <%= number_to_currency(item.price) %> | <%= button_to 'Add to Cart', line_items_path(item_id: item.id) %></p>
-<% end %>
+  <p><%= item.title %> | <%= number_to_currency(item.price.to_f/100) %> | <% if user_signed_in? %><%= button_to 'Add to Cart', line_items_path(item_id: item.id) %><% end %></p>
 <% end %>

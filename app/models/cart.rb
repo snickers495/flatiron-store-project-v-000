@@ -5,7 +5,7 @@ class Cart < ActiveRecord::Base
   def total
     counter = 0
     self.line_items.each do |l|
-      counter += (l.quantity * l.item.price)
+      counter += (l.quantity * ((l.item.price.to_f)/100))
     end
     counter
   end

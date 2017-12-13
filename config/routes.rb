@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   authenticated :user do
     root to: 'store#index', as: :authenticated_root
   end
-  root to: redirect('/users/sign_in')
+
+  post "checkout", to: "carts#checkout"
+  post "/users/sign_out", to: redirect("/")
 
 end
